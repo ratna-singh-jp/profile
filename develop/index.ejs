@@ -17,6 +17,25 @@
     <div class="preloader-spinner"></div>
   </div>
 
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+    <button class="lightbox-close" aria-label="Close lightbox">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="lightbox-container">
+      <img id="lightbox-img" src="" alt="" class="lightbox-image">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+      <div class="lightbox-controls">
+        <button class="lightbox-nav lightbox-prev" aria-label="Previous image">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next" aria-label="Next image">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="header">
     <div class="header__wrapper">
@@ -27,7 +46,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
+      <!-- <a href="#experience">Experience</a> -->
       <a href="#contact">Contact</a>
     </nav>
   
@@ -53,7 +72,7 @@
             どんな状況でも、冷静に判断することを心がけています。
           </p>
           <div class="hero__cta">
-            <a href="#portfolio" class="button">View My Work</a>
+            <a href="#projects" class="button">View My Work</a>
             <a href="#contact" class="button button-outline">Hire Me</a>
           </div>
           <!-- <div class="hero__social">
@@ -102,7 +121,7 @@
             </div>
           </div>
           <div class="skills">
-            <h4>My Skills</h4>
+            <h4 id="skills">My Skills</h4>
             <div class="skill-item">
               <span>HTML</span>
               <div class="skill-bar">
@@ -195,10 +214,10 @@
   </section> -->
 
   <!-- Portfolio Section with Swiper -->
-  <section id="portfolio" class="portfolio">
+  <section id="projects" class="portfolio">
     <div class="container">
-      <h2 class="section-title">LP <span>Portfolio</span></h2>
-      <p class="section-subtitle">ECシステム別ランディングページ例</p>
+      <h2 class="section-title">Projects <span>Portfolio</span></h2>
+      <p class="section-subtitle">ECシステム別プロジェクト例</p>
       <!-- ecbeing Section -->
       <div class="ec-section">
         <h3 class="ec-title">ecbeing Projects</h3>
@@ -212,7 +231,7 @@
                   alt="ecbeing Project 1">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Fashion Collection LP</h3>
+                    <h3>ECサイト</h3>
                     <p>ecbeing Platform</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
@@ -227,7 +246,7 @@
                   alt="ecbeing Project 2">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Seasonal Sale LP</h3>
+                    <h3>ECサイト</h3>
                     <p>ecbeing Platform</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
@@ -242,7 +261,7 @@
                   alt="ecbeing Project 3">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Seasonal Sale LP</h3>
+                    <h3>ECサイト</h3>
                     <p>ecbeing Platform</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
@@ -269,7 +288,7 @@
                   alt="EBISUMART Project 1">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Business Solution LP</h3>
+                    <h3>ECサイト</h3>
                     <p>EBISUMART Platform</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
@@ -284,7 +303,7 @@
                   alt="EBISUMART Project 2">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Corporate Service LP</h3>
+                    <h3>ECサイト</h3>
                     <p>EBISUMART Platform</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
@@ -299,7 +318,7 @@
                   alt="EBISUMART Project 3">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Corporate Service LP</h3>
+                    <h3>ECサイト</h3>
                     <p>EBISUMART Platform</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
@@ -314,7 +333,7 @@
                   alt="EBISUMART Project 4">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Corporate Service LP</h3>
+                    <h3>ECサイト</h3>
                     <p>EBISUMART Platform</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
@@ -329,7 +348,7 @@
                   alt="EBISUMART Project 5">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Corporate Service LP</h3>
+                    <h3>ECサイト</h3>
                     <p>EBISUMART Platform</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
@@ -344,7 +363,7 @@
                   alt="EBISUMART Project 6">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Corporate Service LP</h3>
+                    <h3>ECサイト</h3>
                     <p>EBISUMART Platform</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
@@ -359,7 +378,7 @@
                   alt="EBISUMART Project 7">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Corporate Service LP</h3>
+                    <h3>ECサイト</h3>
                     <p>EBISUMART Platform</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
@@ -386,7 +405,7 @@
                   alt="SFCC Project 1">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Tech Gadgets LP</h3>
+                    <h3>ECサイト</h3>
                     <p>SFCC Platform</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
@@ -401,7 +420,7 @@
                   alt="SFCC Project 2">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Audio Equipment LP</h3>
+                    <h3>ECサイト</h3>
                     <p>SFCC Platform</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
@@ -416,7 +435,7 @@
                   alt="SFCC Project 3">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Audio Equipment LP</h3>
+                    <h3>ECサイト</h3>
                     <p>SFCC Platform</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
@@ -433,38 +452,44 @@
       <!-- W2 Section -->
       <div class="ec-section">
         <h3 class="ec-title">W2 Projects</h3>
-        <div class="swiper w2-swiper">
+        <p>EBISUMARTへ乗り換え済みのためお見せできません</p>
+      </div>
+
+      <!-- Wordpress Section -->
+      <div class="ec-section">
+        <h3 class="ec-title">Wordpress Projects</h3>
+        <div class="swiper wordpress-swiper">
           <div class="swiper-wrapper">
-            <!-- W2 Item 1 -->
-            <!-- <div class="swiper-slide portfolio-item" data-ec="w2">
+            <!-- Wordpress Item 1 -->
+            <div class="swiper-slide portfolio-item" data-ec="wordpress">
               <div class="portfolio-img">
                 <img
-                  src="assets/images/w2/img01.png"
-                  alt="W2 Project 1">
+                  src="assets/images/wordpress/img01.png"
+                  alt="Wordpress Project 1">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Food Delivery LP</h3>
-                    <p>W2 Platform</p>
+                    <h3>コーポレートサイト</h3>
+                    <p>WordPress</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
                 </div>
               </div>
-            </div> -->
-            <!-- W2 Item 2 -->
-            <!-- <div class="swiper-slide portfolio-item" data-ec="w2">
+            </div>
+            <!-- Wordpress Item 2 -->
+            <div class="swiper-slide portfolio-item" data-ec="wordpress">
               <div class="portfolio-img">
                 <img
-                  src="assets/images/w2/img02.png"
-                  alt="W2 Project 2">
+                  src="assets/images/wordpress/img02.png"
+                  alt="Wordpress Project 2">
                 <div class="portfolio-overlay">
                   <div class="portfolio-content">
-                    <h3>Recipe Collection LP</h3>
-                    <p>W2 Platform</p>
+                    <h3>求人サイト</h3>
+                    <p>WordPress</p>
                     <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div>
           </div>
           <div class="swiper-pagination"></div>
           <div class="swiper-button-next"></div>
@@ -578,6 +603,10 @@
     <i class="fas fa-arrow-up"></i>
   </a>
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Scripts -->
   <!-- Local Swiper JS -->
   <script src="assets/lib/swiper/swiper-bundle.min.js"></script>

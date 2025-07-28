@@ -15,6 +15,7 @@ import htmlmin from 'gulp-htmlmin';
 import ejs from 'gulp-ejs';
 import imagemin from 'gulp-imagemin';
 import newer from 'gulp-newer';
+import cache from 'gulp-cache';
 import rename from 'gulp-rename';
 import gulpif from 'gulp-if';
 import sourcemaps from 'gulp-sourcemaps';
@@ -123,22 +124,37 @@ const scripts = () => {
     .pipe(browserSync.stream());
 };
 
-/* Images → optimised images */
+/* Images → optimised images with caching */
 const images = () =>
-  src(cfg.images.src)
+  src(cfg.images.src, { since: gulp.lastRun(images) })
     .pipe(newer(cfg.images.dest))
-    .pipe(imagemin([
+    .pipe(cache(imagemin([
       imagemin.gifsicle({ interlaced: true }),
-      imagemin.mozjpeg({ quality: 80, progressive: true }),
-      imagemin.optipng({ optimizationLevel: 5 }),
+      imagemin.mozjpeg({ 
+        quality: 75,
+        progressive: true,
+        arithmetic: false
+      }),
+      imagemin.optipng({ 
+        optimizationLevel: 3,
+        bitDepthReduction: true,
+        colorTypeReduction: true,
+        paletteReduction: true
+      }),
       imagemin.svgo({
         plugins: [
           { removeViewBox: false },
-          { cleanupIDs: false }
+          { cleanupIDs: false },
+          { removeUselessDefs: false },
+          { cleanupNumericValues: { floatPrecision: 1 } }
         ]
       })
     ], {
-      verbose: true
+      verbose: false,
+      silent: true
+    }), {
+      name: 'imagemin',
+      fileCache: new cache.Cache({ cacheDirName: '.imagecache' })
     }))
     .pipe(dest(cfg.images.dest));
 
