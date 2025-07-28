@@ -1,0 +1,82 @@
+<%
+  /* 1️⃣  One array → all data in one place */
+  const tabs = [
+    {
+      id: 'ecbeing',
+      title: 'ecbeing',
+      images: [
+        { src: '/images/ecbeing/1.jpg', alt: 'EC 1' },
+        { src: '/images/ecbeing/2.jpg', alt: 'EC 2' },
+        { src: '/images/ecbeing/3.jpg', alt: 'EC 3' }
+      ]
+    },
+    {
+      id: 'ebisumart',
+      title: 'EBISUMART',
+      images: [
+        { src: '/images/ebisumart/1.jpg', alt: 'EB 1' },
+        { src: '/images/ebisumart/2.jpg', alt: 'EB 2' }
+      ]
+    },
+    {
+      id: 'sfcc',
+      title: 'SFCC',
+      images: [
+        { src: '/images/sfcc/1.jpg', alt: 'SF 1' }
+      ]
+    },
+    {
+      id: 'w2',
+      title: 'W2',
+      images: [
+        { src: '/images/w2/1.jpg', alt: 'W2 1' },
+        { src: '/images/w2/2.jpg', alt: 'W2 2' }
+      ]
+    }
+  ];
+%>
+
+<!-- 2️⃣  Tabs navigation -->
+<div class="tabs">
+  <% tabs.forEach((tab, index) => { %>
+    <button class="tab-btn <%= index === 0 ? 'active' : '' %>"
+            data-tab="<%= tab.id %>"
+            aria-controls="<%= tab.id %>-panel">
+      <%= tab.title %>
+    </button>
+  <% }) %>
+</div>
+
+<!-- 3️⃣  Tab panels -->
+<% tabs.forEach((tab, index) => { %>
+  <div id="<%= tab.id %>-panel"
+       class="tab-panel <%= index === 0 ? 'active' : '' %>"
+       role="tabpanel"
+       aria-labelledby="<%= tab.id %>">
+
+    <!-- Swiper -->
+    <div class="swiper <%= tab.id %>-swiper">
+      <div class="swiper-wrapper">
+        <% tab.images.forEach(img => { %>
+          <div class="swiper-slide">
+            <img src="<%= img.src %>"
+                 alt="<%= img.alt %>"
+                 loading="lazy"
+                 data-full="<%= img.src %>"
+                 class="gallery-img">
+          </div>
+        <% }) %>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+  </div>
+<% }) %>
+
+<!-- 4️⃣  Lightbox (one per page) -->
+<div id="lightbox" class="lightbox hidden">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt="">
+</div>

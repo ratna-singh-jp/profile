@@ -1,0 +1,21 @@
+{
+    "site": {
+      "title": "My Portfolio",
+      "description": "Modern web portfolio built with Gulp 4 + EJS"
+    },
+    "author": {
+      "name": "Your Name",
+      "role": "Front-end Developer",
+      "email": "you@example.com"
+    },
+    "navigation": [
+      { "label": "Home", "href": "index.html" },
+      { "label": "About", "href": "about.html" },
+      { "label": "Portfolio", "href": "work.html" },
+      { "label": "Contact", "href": "contact.html" }
+    ],
+    "socials": [
+      { "platform": "GitHub", "url": "https://github.com/yourname" },
+      { "platform": "LinkedIn", "url": "https://linkedin.com/in/yourname" }
+    ]
+  }

@@ -1,7 +1,7 @@
 # Dependencies
 node_modules/
 npm-debug.log
-package-lock.json
+# package-lock.json
 
 # Environment variables
 .env
@@ -17,14 +17,14 @@ Thumbs.db
 
 # Development files
 # Don't track files in develop directory except for specific files we want to track
-/develop/**
-!/develop/README.md
-!/develop/*.ejs
-!/develop/*.html
-!/develop/*.php
-!/develop/*.xhtml
-!/develop/assets/scss/**/*.scss
-!/develop/assets/js/**/*.js
+# /develop/**
+# !/develop/README.md
+# !/develop/*.ejs
+# !/develop/*.html
+# !/develop/*.php
+# !/develop/*.xhtml
+# !/develop/assets/scss/**/*.scss
+# !/develop/assets/js/**/*.js
 
 # But track the view directory
 !view/
