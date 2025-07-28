@@ -27,7 +27,8 @@ Thumbs.db
 # !/develop/assets/js/**/*.js
 
 # But track the view directory
-!view/
+# !view/
+view
 
 # IDE specific files
 .vscode/
