@@ -1,0 +1,57 @@
+{
+  "name": "portfolio-esm-gulp",
+  "type": "module",
+  "version": "2.0.0",
+  "description": "Gulp 4 ESM starter for modern web projects",
+  "main": "gulpfile.mjs",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "clean": "gulp clean",
+    "styles": "gulp styles",
+    "scripts": "gulp scripts",
+    "images": "gulp images"
+  },
+  "keywords": [
+    "gulp",
+    "sass",
+    "ejs",
+    "imagemin",
+    "cache-busting",
+    "esm"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "browser-sync": "^3.0.4",
+    "cross-env": "^10.0.0",
+    "cssnano": "^7.1.0",
+    "del": "^7.1.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-ejs": "^5.1.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-rename": "^2.1.0",
+    "gulp-rev": "^11.0.0",
+    "gulp-rev-rewrite": "^6.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.89.2",
+    "through2": "^4.0.2",
+    "vinyl-string": "^1.0.2"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.0.0",
+    "swiper": "^11.2.10",
+    "typed.js": "^2.1.0"
+  }
+}
