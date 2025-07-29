@@ -73,12 +73,12 @@ const app = {
 
     if (typeof Swiper === 'undefined') return;
     swipers.forEach(el => {
-      new Swiper(el, {
-        loop: true,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false
-        },
+      const swiperInstance = new Swiper(el, {
+        loop: false,
+        // autoplay: {
+        //   delay: 5000,
+        //   disableOnInteraction: false
+        // },
         pagination: {
           el: el.querySelector('.swiper-pagination'),
           clickable: true,
@@ -106,10 +106,37 @@ const app = {
         },
         on: {
           init: function() {
+            const navNext = el.querySelector('.swiper-button-next');
+            const navPrev = el.querySelector('.swiper-button-prev');
+            const pagination = el.querySelector('.swiper-pagination');
+            
+            // Hide navigation if only one slide
+            if (this.slides.length <= 1) {
+              if (navNext) navNext.style.display = 'none';
+              if (navPrev) navPrev.style.display = 'none';
+              if (pagination) pagination.style.display = 'none';
+            }
+            
             // Add click handler to slides
             this.slides.forEach(slide => {
               slide.style.cursor = 'pointer';
             });
+          },
+          // Update navigation visibility when slides change
+          update: function() {
+            const navNext = el.querySelector('.swiper-button-next');
+            const navPrev = el.querySelector('.swiper-button-prev');
+            const pagination = el.querySelector('.swiper-pagination');
+            
+            if (this.slides.length <= 1) {
+              if (navNext) navNext.style.display = 'none';
+              if (navPrev) navPrev.style.display = 'none';
+              if (pagination) pagination.style.display = 'none';
+            } else {
+              if (navNext) navNext.style.display = 'flex';
+              if (navPrev) navPrev.style.display = 'flex';
+              if (pagination) pagination.style.display = 'flex';
+            }
           }
         }
       });
