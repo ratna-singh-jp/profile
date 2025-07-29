@@ -193,12 +193,18 @@ const copyLib = () => {
   return src(cfg.lib.src, { dot: true })
     .pipe(dest(cfg.lib.dest));};
 
-/* Copy everything else (fonts, videos…) */
+/* Copy everything else (fonts, videos, manifest files, etc.) */
 const staticFiles = () =>
   src([
     'develop/assets/**/*',
-    '!develop/assets/{scss,js,images,lib}/**/*' // Exclude lib as we handle it separately
-  ], { dot: true, base: cfg.src })
+    '!develop/assets/{scss,js,images,lib}/**/*', // Exclude lib as we handle it separately
+    'develop/assets/images/*.{ico,png,svg,webmanifest,json,webp}' // Explicitly include manifest files
+  ], { 
+    dot: true, 
+    base: cfg.src,
+    allowEmpty: true
+  })
+    .pipe(newer(cfg.dist))
     .pipe(dest(cfg.dist))
     .pipe(browserSync.stream());
 

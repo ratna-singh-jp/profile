@@ -40,6 +40,33 @@ $gradient-accent: linear-gradient(135deg, $accent-color, color.adjust($accent-co
   box-sizing: border-box;
 }
 
+body, html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* Account for fixed header height + some spacing */
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+section[id] {
+  scroll-margin-top: 90px;
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    height: 90px; /* Same as scroll-margin-top */
+    margin-top: -90px; /* Negative value to pull the content up */
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
 body {
   font-family: $font-stack;
   line-height: 1.7;
@@ -47,7 +74,6 @@ body {
   padding: 0;
   color: $text-color;
   background-color: $background;
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -192,7 +218,7 @@ p {
   &__cta {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 16px;
     margin-top: 2rem;
     
     .button {
@@ -211,6 +237,9 @@ p {
       z-index: 1;
       min-width: 180px;
       text-decoration: none;
+      @media (max-width: 768px) {
+        min-width: 150px;
+      }
       &::before {
         content: '';
         position: absolute;
