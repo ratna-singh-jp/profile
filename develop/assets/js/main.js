@@ -13,6 +13,7 @@ const app = {
     this.typed();
     this.lightbox();
     this.backToTop();
+    this.updateCurrentYear();
   },
 
   /* ---------- 2. Header (animated drawer + icon) ---------- */
@@ -343,6 +344,14 @@ const app = {
         }
       }
     });
+  },
+
+  // Update current year in footer
+  updateCurrentYear() {
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
   }
 };
 
