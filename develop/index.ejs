@@ -7,6 +7,16 @@
   <meta name="description" content="Professional portfolio showcasing my work and skills">
   <title>My Portfolio | Frontend Developer</title>
   
+  <!-- Preload critical resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+  
+  <!-- Preload Font Awesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+  
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
@@ -15,11 +25,44 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
   <link rel="manifest" href="assets/images/site.webmanifest">
   
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/main.css"></noscript>
+  
   <!-- Stylesheets -->
   <link rel="stylesheet" href="assets/css/main.css">
   
   <!-- Local Swiper CSS -->
   <link rel="stylesheet" href="assets/lib/swiper/swiper-bundle.min.css">
+  
+  <!-- Calendly link widget -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <script>
+    // Initialize Calendly widget
+    function initCalendly() {
+      if (window.Calendly) {
+        Calendly.initBadgeWidget({
+          url: 'https://calendly.com/ratna-singh-jp/30min',
+          text: '面談を予約する',
+          color: '#00a2ff',
+          textColor: '#ffffff',
+          branding: true
+        });
+      }
+    }
+    
+    // Initialize Calendly when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      // If Calendly is already loaded, initialize it
+      if (window.Calendly) {
+        initCalendly();
+      } else {
+        // If not, wait for it to load
+        document.addEventListener('calendly_js_loaded', initCalendly);
+      }
+    });
+  </script>
 </head>
 
 <body>
@@ -74,7 +117,8 @@
       <div class="hero__content">
         <div class="hero__text animate animate-fade-in">
           <h3>Hello, I'm</h3>
-          <h1>Singh Ratna</h1>
+          <h1>Singh Ratna</h1><br>
+          <div class="hero__metrics">⚡ 3+ years / 24 stores live / 45% faster pages</div>
           <h2>フロントエンドエンジニア<span class="typing-text"></span></h2>
           <p>
             現状フロントエンドエンジニアとして勤めています。<br>
@@ -131,61 +175,38 @@
               <p>東京、日本</p>
             </div>
           </div>
-          <div class="skills">
-            <h4 id="skills">My Skills（使用頻度）</h4>
-            <div class="skill-item">
-              <span>HTML</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 95%;" data-level="95%"></div>
-              </div>
+          <div class="skills-tag-cloud">
+            <h4 id="skills">My Skills & Experience</h4>
+            <div class="skills-container">
+              <span class="skill-tag" data-years="3">#HTML5</span>
+              <span class="skill-tag" data-years="3">#CSS3</span>
+              <span class="skill-tag" data-years="4">#Sass/SCSS</span>
+              <span class="skill-tag" data-years="4">#JavaScript</span>
+              <span class="skill-tag" data-years="3">#jQuery</span>
+              <span class="skill-tag" data-years="1">#JSON</span>
+              <span class="skill-tag" data-years="3">#EJS</span>
+              <span class="skill-tag" data-years="4">#Gulp</span>
+              <span class="skill-tag" data-years="2">#Node.js</span>
+              <span class="skill-tag" data-years="3">#PHP</span>
+              <span class="skill-tag" data-years="1">#MySQL</span>
+              <span class="skill-tag" data-years="3">#Git</span>
+              <span class="skill-tag" data-years="2">#Figma</span>
+              <span class="skill-tag" data-years="3">#Adobe XD</span>
+              <span class="skill-tag" data-years="3">#Photoshop</span>
+              <span class="skill-tag" data-years="3">#Illustrator</span>
+              <span class="skill-tag" data-years="4">#Responsive Design</span>
+              <span class="skill-tag" data-years="4">#Cross-browser</span>
+              <span class="skill-tag" data-years="2">#Web Accessibility</span>
+              <span class="skill-tag" data-years="3">#UI/UX</span>
+              <span class="skill-tag" data-years="4">#EC Platforms</span>
+              <span class="skill-tag" data-years="2">#SFCC</span>
+              <span class="skill-tag" data-years="1">#Headless CMS</span>
             </div>
-            <div class="skill-item">
-              <span>PHP</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 75%;" data-level="75%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span>CSS</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 95%;" data-level="95%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span>JavaScript</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 75%;" data-level="75%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span>EJS</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 90%;" data-level="90%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span>Node.js</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 60%;" data-level="60%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span>gulp</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 95%;" data-level="95%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span>Figma</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 80%;" data-level="80%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <span>Adobe XD, Photoshop & Illustrator</span>
-              <div class="skill-bar">
-                <div class="skill-level" style="width: 75%;" data-level="75%"></div>
-              </div>
+            <div class="skills-legend">
+              <span>経験年数: </span>
+              <span class="legend-item"><span class="legend-dot legend-dot01"></span> 0.5-1年</span>
+              <span class="legend-item"><span class="legend-dot legend-dot02"></span> 2年</span>
+              <span class="legend-item"><span class="legend-dot legend-dot03"></span> 3年以上</span>
             </div>
           </div>
           <!-- <a href="#" class="button">Download CV</a> -->
@@ -224,8 +245,93 @@
     </div>
   </section> -->
 
-  <!-- Portfolio Section with Swiper -->
-  <section id="projects" class="portfolio">
+  <!-- Case Studies Section -->
+  <section id="projects" class="case-studies">
+    <div class="container">
+      <h2 class="section-title">Case <span>Studies</span></h2>
+      <p class="section-subtitle">Problem → Solution → Impact</p>
+      
+      <div class="case-studies-grid">
+        <!-- Case Study 1 -->
+        <div class="case-study-card">
+          <div class="case-study-image">
+            <img src="assets/images/ebisumart/img01.png" alt="EBISUMART E-commerce Platform">
+          </div>
+          <div class="case-study-content">
+            <h3>EBISUMART Eコマースプラットフォーム</h3>
+            <div class="case-study-details">
+              <div class="case-study-problem">
+                <h4>Problem</h4>
+                <p>パフォーマンスが遅く、モバイル体験が不十分な時代遅れのプラットフォーム</p>
+              </div>
+              <div class="case-study-solution">
+                <h4>Solution</h4>
+                <p>モダンなヘッドレスアーキテクチャを採用</p>
+              </div>
+              <div class="case-study-metric">
+                <h4>Impact</h4>
+                <p>パフォーマンス向上、モバイル体験向上</p>
+              </div>
+            </div>
+            <!-- <a href="#" class="button button-small">View Case Study →</a> -->
+          </div>
+        </div>
+        
+        <!-- Case Study 2 -->
+        <div class="case-study-card">
+          <div class="case-study-image">
+            <img src="assets/images/sfcc/img01.png" alt="SFCC Implementation">
+          </div>
+          <div class="case-study-content">
+            <h3>SFCCエンタープライズ実装</h3>
+            <div class="case-study-details">
+              <div class="case-study-problem">
+                <h4>Problem</h4>
+                <p>グローバルサイトと異なったECシステムを使用していた</p>
+              </div>
+              <div class="case-study-solution">
+                <h4>Solution</h4>
+                <p>統一したECシステムを導入</p>
+              </div>
+              <div class="case-study-metric">
+                <h4>Impact</h4>
+                <p>ブランドの統一感</p>
+              </div>
+            </div>
+            <!-- <a href="#" class="button button-small">View Case Study →</a> -->
+          </div>
+        </div>
+        
+        <!-- Case Study 3 -->
+        <div class="case-study-card">
+          <div class="case-study-image">
+            <img src="assets/images/wordpress/img02.png" alt="WordPress Corporate Site">
+          </div>
+          <div class="case-study-content">
+            <h3>コーポレートウェブサイトのリデザイン</h3>
+            <div class="case-study-details">
+              <div class="case-study-problem">
+                <h4>Problem</h4>
+                <p>ユーザーエンゲージメントとリード獲得率の低さ</p>
+              </div>
+              <div class="case-study-solution">
+                <h4>Solution</h4>
+                <p>ユーザー中心のデザインと明確なCTAを配置したリデザイン</p>
+              </div>
+              <div class="case-study-metric">
+                <h4>Impact</h4>
+                <p>リード獲得数3倍、平均セッション時間40%増加</p>
+              </div>
+            </div>
+            <!-- <a href="#" class="button button-small">View Case Study →</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- Portfolio Section with Swiper -->
+   <section id="projects" class="portfolio">
     <div class="container">
       <h2 class="section-title">Projects <span>Portfolio</span></h2>
       <p class="section-subtitle">ECシステム別プロジェクト例</p>
@@ -518,29 +624,36 @@
         <div class="contact__info">
           <h3>最後に</h3>
           <p>
-            ご質問やご要望がございましたら、お気軽にご連絡ください。ご返答いたします！
+            ご質問やご要望がございましたら、お気軽にご連絡ください。
+            下記のボタンから面談のスケジュールを予約いただけます。
           </p>
+          
+          <!-- Calendly Button -->
+          <div class="calendly-button-container">
+            <button 
+              class="button" 
+              onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ratna-singh-jp/30min'});return false;"
+              id="calendly-button"
+            >
+              <i class="far fa-calendar-alt"></i> 面談を予約する
+            </button>
+            <p class="calendly-note">またはメールでご連絡ください: 
+              <a href="mailto:ratna.singh.jp@gmail.com" class="email-link">ratna.singh.jp@gmail.com</a>
+            </p>
+          </div>
+          
           <div class="contact__details">
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <div>
-                <h4>Email Me</h4>
-                <p><a href="mailto:ratna.singh.jp@gmail.com">ratna.singh.jp@gmail.com</a></p>
-              </div>
-            </div>
-            <!-- <div class="contact-item">
-              <i class="fas fa-phone"></i>
-              <div>
-                <h4>Call Me</h4>
-                <p>+818087644947</p>
-              </div>
-            </div> -->
             <div class="contact-item">
               <i class="fas fa-map-marker-alt"></i>
               <div>
                 <h4>Location</h4>
                 <p>東京、日本</p>
               </div>
+            </div>
+            
+            <!-- Hidden Calendly Inline Widget -->
+            <div id="calendly-widget" style="display: none;">
+              <!-- Calendly inline widget will be loaded here -->
             </div>
           </div>
           <!-- <div class="contact__social">
@@ -633,6 +746,46 @@
   <!-- Main JavaScript (ES Module) -->
   <script type="module" src="assets/js/main.js"></script>
   <script type="module" src="assets/js/smooth_scroll.js"></script>
+  
+  <!-- Calendly script -->
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script>
+    // Initialize Calendly button
+    document.addEventListener('DOMContentLoaded', function() {
+      // This will be called when the Calendly script is loaded
+      if (typeof Calendly !== 'undefined') {
+        // Calendly is already loaded
+        initCalendly();
+      } else {
+        // Wait for Calendly to load
+        const checkCalendly = setInterval(function() {
+          if (typeof Calendly !== 'undefined') {
+            clearInterval(checkCalendly);
+            initCalendly();
+          }
+        }, 100);
+      }
+      
+      function initCalendly() {
+        // Initialize Calendly button
+        const calendlyButton = document.getElementById('calendly-button');
+        if (calendlyButton) {
+          calendlyButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            Calendly.initPopupWidget({
+              url: 'https://calendly.com/ratna-singh-jp/30min',
+              text: '面談を予約する',
+              color: '#3a86ff',
+              textColor: '#ffffff',
+              branding: false
+            });
+            return false;
+          });
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

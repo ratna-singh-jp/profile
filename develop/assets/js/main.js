@@ -73,20 +73,30 @@ const app = {
 
     if (typeof Swiper === 'undefined') return;
     swipers.forEach(el => {
+      const navNext = el.querySelector('.swiper-button-next');
+      const navPrev = el.querySelector('.swiper-button-prev');
+      const pagination = el.querySelector('.swiper-pagination');
+      
       const swiperInstance = new Swiper(el, {
         loop: false,
+        watchOverflow: true,
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true,
         // autoplay: {
         //   delay: 5000,
         //   disableOnInteraction: false
         // },
         pagination: {
-          el: el.querySelector('.swiper-pagination'),
+          el: pagination,
           clickable: true,
-          dynamicBullets: true
+          dynamicBullets: true,
+          hideOnClick: false
         },
         navigation: {
-          nextEl: el.querySelector('.swiper-button-next'),
-          prevEl: el.querySelector('.swiper-button-prev')
+          nextEl: navNext,
+          prevEl: navPrev,
+          disabledClass: 'swiper-button-disabled',
+          hiddenClass: 'swiper-button-hidden'
         },
         slidesPerView: 1,
         spaceBetween: 20,
@@ -202,7 +212,7 @@ const app = {
   /* ---------- 7. Lightbox ---------- */
   lightbox() {
     const box = document.getElementById('lightbox');
-    const img = document.getElementById('lightbox-img');
+    const img = document.querySelector('.lightbox-image');
     const caption = document.getElementById('lightbox-caption');
     const closeBtn = document.querySelector('.lightbox-close');
     const prevBtn = document.querySelector('.lightbox-prev');
@@ -221,6 +231,20 @@ const app = {
       // Set the lightbox content
       img.src = fullImg;
       img.alt = imgAlt;
+      
+      // Show the lightbox
+      document.body.style.overflow = 'hidden';
+      box.classList.remove('hidden');
+      // Force reflow to ensure the transition works
+      void box.offsetWidth;
+      box.classList.add('visible');
+      
+      // Focus management for accessibility
+      box.setAttribute('aria-hidden', 'false');
+      if (closeBtn) closeBtn.focus();
+      
+      // Store current image element for navigation
+      currentImage = imageElement;
       
       // Set caption if available
       if (caption) {
@@ -252,27 +276,33 @@ const app = {
     };
     
     // Handle click events on portfolio images and swiper slides
-    document.addEventListener('click', (e) => {
-      // Check for portfolio image click
-      const portfolioImg = e.target.closest('.portfolio-img img');
-      if (portfolioImg) {
-        e.preventDefault();
-        e.stopPropagation();
-        handleImageClick(portfolioImg);
-        return;
+    const handleDocumentClick = (e) => {
+      // Only proceed if the click is directly on an image or its parent
+      const target = e.target;
+      
+      // Check if the click is on a navigation element or its children
+      if (target.closest('.swiper-button-next, .swiper-button-prev, .swiper-pagination')) {
+        return; // Let Swiper handle navigation clicks
       }
       
-      // Check for swiper slide click (but not on navigation elements)
-      const swiperSlide = e.target.closest('.swiper-slide:not(.swiper-slide-duplicate)');
-      if (swiperSlide && !e.target.closest('.swiper-button-next, .swiper-button-prev, .swiper-pagination')) {
-        const img = swiperSlide.querySelector('img');
-        if (img) {
-          e.preventDefault();
-          e.stopPropagation();
-          handleImageClick(img);
-        }
+      // Check for portfolio image click or swiper slide click
+      let imgElement = target.closest('.portfolio-img img, .swiper-slide:not(.swiper-slide-duplicate) img');
+      
+      // If clicked on slide but not directly on image, try to find the image
+      if (!imgElement && target.closest('.swiper-slide:not(.swiper-slide-duplicate)')) {
+        const slide = target.closest('.swiper-slide:not(.swiper-slide-duplicate)');
+        imgElement = slide.querySelector('img');
       }
-    });
+      
+      if (imgElement && !target.closest('a, button, [role="button"]')) {
+        e.preventDefault();
+        e.stopPropagation();
+        handleImageClick(imgElement);
+      }
+    };
+    
+    // Add the event listener with capture to ensure it runs before Swiper's handlers
+    document.addEventListener('click', handleDocumentClick, true);
     
     // Handle keyboard navigation
     let currentImage = null;
@@ -339,20 +369,41 @@ const app = {
     }
 
     // Close lightbox when clicking the close button or overlay
-    const closeLightbox = () => {
-      box.classList.remove('visible');
-      box.addEventListener('transitionend', function handler() {
-        box.removeEventListener('transitionend', handler);
-        box.classList.add('hidden');
-      }, { once: true });
+    const closeLightbox = (e) => {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
       
+      box.classList.remove('visible');
+      
+      const handleTransitionEnd = () => {
+        box.removeEventListener('transitionend', handleTransitionEnd);
+        box.classList.add('hidden');
+      };
+      
+      box.addEventListener('transitionend', handleTransitionEnd, { once: true });
+      
+      // Reset body overflow and aria attributes
       document.body.style.overflow = '';
       box.setAttribute('aria-hidden', 'true');
+      
+      // Remove the active class from the lightbox
+      setTimeout(() => {
+        box.classList.remove('active');
+      }, 300);
     };
     
-    closeBtn.addEventListener('click', closeLightbox);
+    // Add click event for close button
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeLightbox);
+    }
+    
+    // Add click event for overlay (background)
     box.addEventListener('click', (e) => {
-      if (e.target === box) closeLightbox();
+      if (e.target === box || e.target.classList.contains('lightbox')) {
+        closeLightbox(e);
+      }
     });
     
     // Keyboard navigation

@@ -3,6 +3,7 @@
 @use 'common/mixin' as *;
 @use 'common/variables' as *;
 @use 'common/header' as *;
+@use 'components/calendly-button';
 
 // External CSS (can't be @use'd as they're not SCSS)
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
@@ -359,7 +360,7 @@ p {
   
   h1 {
     font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     color: $dark-color;
     font-weight: 800;
     line-height: 1.2;
@@ -371,6 +372,23 @@ p {
     
     @media (max-width: 768px) {
       font-size: 2.5rem;
+    }
+  }
+  
+  &__metrics {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $secondary-color;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    background: rgba($secondary-color, 0.1);
+    backdrop-filter: blur(5px);
+    
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      padding: 0.4rem 1rem;
     }
   }
   
@@ -799,11 +817,29 @@ p {
     
     // Navigation buttons
     .swiper-button-next,
-    .swiper-button-prev {
+    .swiper-button-prev,
+    .swiper-button-next {
       color: $primary-color;
       background: rgba(255, 255, 255, 0.9);
       width: 44px;
       height: 44px;
+      border-radius: 50%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      opacity: 1;
+      visibility: visible;
+      
+      &::after {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+      
+      &.swiper-button-disabled,
+      &.swiper-button-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
       border-radius: 50%;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
@@ -851,6 +887,282 @@ p {
       &-active {
         background: $primary-color;
         transform: scale(1.2);
+      }
+    }
+  }
+}
+
+// Skills Tag Cloud
+.skills-tag-cloud {
+  margin-top: 2rem;
+  
+  h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: $dark-color;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: $primary-color;
+      border-radius: 3px;
+    }
+  }
+  
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .skill-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #f0f8ff;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: $dark-color;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    border: 1px solid rgba($primary-color, 0.1);
+    
+    &::before {
+      content: attr(data-years) 'y';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: $primary-color;
+      color: white;
+      font-size: 0.6rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 10px;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      
+      &::before {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    // Color coding based on years of experience
+    &[data-years="0.5"],
+    &[data-years="1"] {
+      background: #e0f7fa;
+      font-size: 0.9em;
+    }
+    
+    &[data-years="2"] {
+      background: #80deea;
+      font-size: 1em;
+    }
+    
+    &[data-years="3"],
+    &[data-years="4"],
+    &[data-years^="3+"],
+    &[data-years^="4+"] {
+      background: #00bcd4;
+      color: white;
+      font-size: 1.1em;
+      font-weight: 500;
+    }
+  }
+  
+  .skills-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: $dark-color-light-15;
+    margin-top: 1.5rem;
+    
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      white-space: nowrap;
+    }
+    
+    .legend-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #e0e0e0;
+    }
+    
+    // Match legend dots with skill tag styles
+    .legend-item{
+      .legend-dot01 {
+        background: #e0f7fa; /* 0.5-1 year */
+      }
+      .legend-dot02 {
+        background: #80deea; /* 2 years */
+      }
+      
+      .legend-dot03 {
+        background: #00bcd4; /* 3+ years */
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .skills-container {
+      gap: 10px;
+    }
+    
+    .skill-tag {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+    }
+    
+    .skills-legend {
+      font-size: 0.8rem;
+      gap: 0.8rem;
+    }
+  }
+}
+
+// Case Studies Section
+.case-studies {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f1f4ff 100%);
+  position: relative;
+  overflow: hidden;
+  
+  .case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .case-study-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .case-study-image {
+      height: 200px;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      
+      &:hover img {
+        transform: scale(1.05);
+      }
+    }
+    
+    .case-study-content {
+      padding: 1.8rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+        color: $dark-color;
+        font-weight: 700;
+      }
+      
+      .case-study-details {
+        margin-bottom: 1.5rem;
+        flex: 1;
+        
+        > div {
+          margin-bottom: 1rem;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+          
+          h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: $primary-color;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+          }
+          
+          p {
+            font-size: 1rem;
+            color: $dark-color-light-15;
+            margin: 0;
+            line-height: 1.5;
+          }
+        }
+        
+        .case-study-metric {
+          background: rgba($primary-color, 0.05);
+          padding: 0.8rem;
+          border-radius: 8px;
+          margin-top: 1.2rem;
+          
+          p {
+            color: $primary-color;
+            font-weight: 600;
+          }
+        }
+      }
+      
+      .button-small {
+        align-self: flex-start;
+        margin-top: auto;
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+        
+        &:hover {
+          transform: translateX(5px);
+        }
+        
+        &::after {
+          content: '→';
+          margin-left: 5px;
+          transition: transform 0.3s ease;
+        }
+        
+        &:hover::after {
+          transform: translateX(3px);
+        }
       }
     }
   }
@@ -1041,8 +1353,8 @@ p {
 /* Back to Top Button */
 .back-to-top {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 110px;
+  right: 20px;
   width: 50px;
   height: 50px;
   background: $primary-color;
@@ -1079,7 +1391,7 @@ p {
     width: 45px;
     height: 45px;
     font-size: 18px;
-    bottom: 20px;
+    bottom: 110px;
     right: 20px;
   }
 }
@@ -1261,5 +1573,19 @@ p {
         }
       }
     }
+  }
+}
+.calendly-badge-widget {
+  bottom: 50px !important;
+  right: 10px !important;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+    opacity: 0.8;
+  }
+  &:active {
+    transform: translateY(-1px);
+    transition: all 0.3s ease;
   }
 }
