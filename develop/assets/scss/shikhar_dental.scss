@@ -768,6 +768,9 @@ section {
   }
 
   .home .content {
+    position: relative;
+    bottom: -300px;
+    z-index: 10;
     width: auto;
   }
 
