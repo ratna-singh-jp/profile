@@ -3,792 +3,340 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Professional portfolio showcasing my work and skills">
-  <title>My Portfolio | Frontend Developer</title>
-  
-  <!-- Preload critical resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
-  
-  <!-- Preload Font Awesome -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-  <link rel="manifest" href="assets/images/site.webmanifest">
-  
-  <!-- Preload critical CSS -->
-  <link rel="preload" href="assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="assets/css/main.css"></noscript>
-  
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/css/main.css">
-  
-  <!-- Local Swiper CSS -->
+  <title>Shikhar Dental Care</title>
+
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- bootstrap cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+
+  <!-- custom css file link  -->
   <link rel="stylesheet" href="assets/lib/swiper/swiper-bundle.min.css">
-  
-  <!-- Calendly link widget -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-  <script>
-    // Initialize Calendly widget
-    function initCalendly() {
-      if (window.Calendly) {
-        Calendly.initBadgeWidget({
-          url: 'https://calendly.com/ratna-singh-jp/30min',
-          text: '面談を予約する',
-          color: '#00a2ff',
-          textColor: '#ffffff',
-          branding: true
-        });
-      }
-    }
-    
-    // Initialize Calendly when the page loads
-    document.addEventListener('DOMContentLoaded', function() {
-      // If Calendly is already loaded, initialize it
-      if (window.Calendly) {
-        initCalendly();
-      } else {
-        // If not, wait for it to load
-        document.addEventListener('calendly_js_loaded', initCalendly);
-      }
-    });
-  </script>
+  <link rel="stylesheet" href="assets/css/shikhar_dental.css">
+  <link rel="icon" href="assets/images/shikhar_dental/favicon.png" />
+
 </head>
 
 <body>
-  <!-- Preloader -->
-  <div class="preloader">
-    <div class="preloader-spinner"></div>
-  </div>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
-    <button class="lightbox-close" aria-label="Close lightbox">
-      <i class="fas fa-times"></i>
-    </button>
-    <div class="lightbox-container">
-      <img id="lightbox-img" src="" alt="" class="lightbox-image">
-      <div class="lightbox-caption" id="lightbox-caption"></div>
-      <div class="lightbox-controls">
-        <button class="lightbox-nav lightbox-prev" aria-label="Previous image">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="lightbox-nav lightbox-next" aria-label="Next image">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-    </div>
-  </div>
+  <!-- header section starts  -->
 
-  <!-- Header -->
-  <header class="header">
-    <div class="header__wrapper">
-      <a href="#" class="header__logo">Singh Ratna</a>
-  
-    <!-- Mobile Navigation with Name -->
-    <nav class="header__nav">
-      <div class="mobile-drawer-header show-sp">
-        <span class="mobile-drawer-name">Singh Ratna</span>
+  <header class="header fixed-top">
+
+    <div class="container">
+
+      <div class="row align-items-center justify-content-between">
+
+        <a href="#home" class="logo">Shikhar<span> Dental Care</span></a>
+
+        <nav class="nav">
+          <a href="#home">home</a>
+          <a href="#about">about</a>
+          <a href="#services">services</a>
+          <a href="#reviews">reviews</a>
+          <a href="#contact">contact</a>
+        </nav>
+
+        <a href="#contact" class="link-btn">make appointment</a>
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
       </div>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <!-- <a href="#experience">Experience</a> -->
-      <a href="#contact">Contact</a>
-    </nav>
-  
-    <!-- Mobile toggle -->
-    <button class="header__mobile-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+
     </div>
+
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
+  <!-- header section ends -->
+
+  <!-- home section starts  -->
+
+  <section class="home" id="home">
+
     <div class="container">
-      <div class="hero__content">
-        <div class="hero__text animate animate-fade-in">
-          <h3>Hello, I'm</h3>
-          <h1>Singh Ratna</h1><br>
-          <div class="hero__metrics">⚡ 3+ years / 24 stores live / 45% faster pages</div>
-          <h2>フロントエンドエンジニア<span class="typing-text"></span></h2>
+
+      <div class="row min-vh-100 align-items-center">
+        <div class="content text-center text-md-left">
+          <h3>Allow us to make your smile brighter.</h3>
+          <p>Shikhar Dental Care Can Help You Get the Smile You've Always Wanted. We offer cosmetic dentistry, root
+            canal therapy, cavity inspections, and more.</p>
+          <a href="#contact" class="link-btn">make appointment</a>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- home section ends -->
+
+  <!-- about section starts  -->
+
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <div class="row align-items-center">
+
+        <div class="col-md-6 image">
+          <img class="shikhar-img-rounded" src="assets/images/shikhar_dental/about-img.jpg" class="w-100 mb-5 mb-md-0" alt="">
+        </div>
+
+        <div class="col-md-6 content">
+          <span>about us</span>
+          <h3>Shikhar Dental Care</h3>
           <p>
-            現状フロントエンドエンジニアとして勤めています。<br>
-            クライアントの課題解決をもとに提案だったり、<br class="show-sp">より良い実装方法を探したりしています。<br>
-            目標を持ち、責任を持って最後までやり抜く人です。<br>
-            どんな状況でも、冷静に判断することを心がけています。
+            Shikhar Dental Care helps you achieve the quintessentially oriented smile you have always craved. Our product gets the job done without making you go through any hassle or discomfort.
           </p>
-          <div class="hero__cta">
-            <a href="#projects" class="button">View My Work</a>
-            <a href="#contact" class="button button-outline">Hire Me</a>
-          </div>
-          <!-- <div class="hero__social">
-            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
-          </div> -->
+          <a href="#contact" class="link-btn">make appointment</a>
         </div>
-        <!-- <div class="hero__image animate animate-fade-in animate-delay-1">
-          <img src="https://via.placeholder.com/500x600" alt="Profile Image">
-        </div> -->
+
       </div>
+
     </div>
+
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2 class="section-title">About <span>Me</span></h2>
-      <div class="about__content">
-        <!-- <div class="about__image animate animate-slide-left">
-          <img src="https://via.placeholder.com/400x500" alt="About Me">
-        </div> -->
-        <div class="about__text animate animate-slide-right">
-          <h3>Passionate Developer</h3>
-          <p>
-            様々なECシステムで3年以上ランディングページの作成、メルマガ作成、特集ページの作成、静的ページ作成等、お客様のご要件に合わせて最適な実装を行っています。
-          </p>
-          <div class="about__info">
-            <div class="info-item">
-              <span>Name:</span>
-              <p>Singh Ratna</p>
-            </div>
-            <div class="info-item">
-              <span>Email:</span>
-              <p><a href="mailto:ratna.singh.jp@gmail.com">ratna.singh.jp@gmail.com</a></p>
-            </div>
-            <div class="info-item">
-              <span>Experience:</span>
-              <p>3年以上</p>
-            </div>
-            <div class="info-item">
-              <span>Location:</span>
-              <p>東京、日本</p>
-            </div>
-          </div>
-          <div class="skills-tag-cloud">
-            <h4 id="skills">My Skills & Experience</h4>
-            <div class="skills-container">
-              <span class="skill-tag" data-years="3">#HTML5</span>
-              <span class="skill-tag" data-years="3">#CSS3</span>
-              <span class="skill-tag" data-years="4">#Sass/SCSS</span>
-              <span class="skill-tag" data-years="4">#JavaScript</span>
-              <span class="skill-tag" data-years="3">#jQuery</span>
-              <span class="skill-tag" data-years="1">#JSON</span>
-              <span class="skill-tag" data-years="1">#Python</span>
-              <span class="skill-tag" data-years="4">#Gulp</span>
-              <span class="skill-tag" data-years="2">#Node.js</span>
-              <span class="skill-tag" data-years="3">#PHP</span>
-              <span class="skill-tag" data-years="1">#MySQL</span>
-              <span class="skill-tag" data-years="3">#Git</span>
-              <span class="skill-tag" data-years="2">#Figma</span>
-              <span class="skill-tag" data-years="3">#Adobe XD</span>
-              <span class="skill-tag" data-years="3">#Photoshop</span>
-              <span class="skill-tag" data-years="3">#Illustrator</span>
-              <span class="skill-tag" data-years="4">#Responsive Design</span>
-              <span class="skill-tag" data-years="4">#Cross-browser</span>
-              <span class="skill-tag" data-years="2">#Web Accessibility</span>
-              <span class="skill-tag" data-years="3">#UI/UX</span>
-              <span class="skill-tag" data-years="4">#EC Platforms</span>
-              <span class="skill-tag" data-years="2">#SFCC</span>
-              <span class="skill-tag" data-years="1">#Headless CMS</span>
-            </div>
-            <div class="skills-legend">
-              <span>経験年数: </span>
-              <span class="legend-item"><span class="legend-dot legend-dot01"></span> 0.5-1年</span>
-              <span class="legend-item"><span class="legend-dot legend-dot02"></span> 2年</span>
-              <span class="legend-item"><span class="legend-dot legend-dot03"></span> 3年以上</span>
-            </div>
-          </div>
-          <!-- <a href="#" class="button">Download CV</a> -->
-        </div>
+  <!-- about section ends -->
+
+  <!-- services section starts  -->
+
+  <section class="services" id="services">
+
+    <h1 class="heading">our services</h1>
+
+    <div class="box-container container">
+
+      <div class="box">
+        <img src="assets/images/shikhar_dental/icon-1.svg" alt="">
+        <h3>Alignment specialist</h3>
       </div>
+
+      <div class="box">
+        <img src="assets/images/shikhar_dental/icon-2.svg" alt="">
+        <h3>Cosmetic dentistry</h3>
+      </div>
+
+      <div class="box">
+        <img src="assets/images/shikhar_dental/icon-3.svg" alt="">
+        <h3>Oral hygiene experts</h3>
+      </div>
+
+      <div class="box">
+        <img src="assets/images/shikhar_dental/icon-4.svg" alt="">
+        <h3>Root canal specialist</h3>
+      </div>
+
+      <div class="box">
+        <img src="assets/images/shikhar_dental/icon-5.svg" alt="">
+        <h3>Live dental advisory</h3>
+      </div>
+
+      <div class="box">
+        <img src="assets/images/shikhar_dental/icon-6.svg" alt="">
+        <h3>Cavity inspection</h3>
+      </div>
+
     </div>
+
   </section>
 
-  <!-- Services Section -->
-  <!-- <section id="services" class="services">
-    <div class="container">
-      <h2 class="section-title">My <span>Services</span></h2>
-      <div class="services__grid">
-        <div class="service-card animate animate-fade-in">
-          <div class="service-icon">
-            <i class="fas fa-code"></i>
-          </div>
-          <h3>Web Development</h3>
-          <p>Building responsive and scalable web applications using modern technologies and best practices.</p>
-        </div>
-        <div class="service-card animate animate-fade-in animate-delay-1">
-          <div class="service-icon">
-            <i class="fas fa-paint-brush"></i>
-          </div>
-          <h3>UI/UX Design</h3>
-          <p>Creating beautiful and intuitive user interfaces that provide exceptional user experiences.</p>
-        </div>
-        <div class="service-card animate animate-fade-in animate-delay-2">
-          <div class="service-icon">
-            <i class="fas fa-mobile-alt"></i>
-          </div>
-          <h3>Mobile Development</h3>
-          <p>Developing cross-platform mobile applications with React Native for iOS and Android.</p>
-        </div>
-      </div>
-    </div>
-  </section> -->
+  <!-- services section ends -->
 
-  <!-- Case Studies Section -->
-  <section id="projects" class="case-studies">
-    <div class="container">
-      <h2 class="section-title">Case <span>Studies</span></h2>
-      <p class="section-subtitle">Problem → Solution → Impact</p>
-      
-      <div class="case-studies-grid">
-        <!-- Case Study 1 -->
-        <div class="case-study-card">
-          <div class="case-study-image">
-            <img src="assets/images/ebisumart/img01.png" alt="EBISUMART E-commerce Platform">
-          </div>
-          <div class="case-study-content">
-            <h3>EBISUMART Eコマースプラットフォーム</h3>
-            <div class="case-study-details">
-              <div class="case-study-problem">
-                <h4>Problem</h4>
-                <p>パフォーマンスが遅く、モバイル体験が不十分な時代遅れのプラットフォーム</p>
-              </div>
-              <div class="case-study-solution">
-                <h4>Solution</h4>
-                <p>モダンなヘッドレスアーキテクチャを採用</p>
-              </div>
-              <div class="case-study-metric">
-                <h4>Impact</h4>
-                <p>パフォーマンス向上、モバイル体験向上</p>
-              </div>
-            </div>
-            <!-- <a href="#" class="button button-small">View Case Study →</a> -->
-          </div>
-        </div>
-        
-        <!-- Case Study 2 -->
-        <div class="case-study-card">
-          <div class="case-study-image">
-            <img src="assets/images/sfcc/img01.png" alt="SFCC Implementation">
-          </div>
-          <div class="case-study-content">
-            <h3>SFCCエンタープライズ実装</h3>
-            <div class="case-study-details">
-              <div class="case-study-problem">
-                <h4>Problem</h4>
-                <p>グローバルサイトと異なったECシステムを使用していた</p>
-              </div>
-              <div class="case-study-solution">
-                <h4>Solution</h4>
-                <p>統一したECシステムを導入</p>
-              </div>
-              <div class="case-study-metric">
-                <h4>Impact</h4>
-                <p>ブランドの統一感</p>
-              </div>
-            </div>
-            <!-- <a href="#" class="button button-small">View Case Study →</a> -->
-          </div>
-        </div>
-        
-        <!-- Case Study 3 -->
-        <div class="case-study-card">
-          <div class="case-study-image">
-            <img src="assets/images/wordpress/img02.png" alt="WordPress Corporate Site">
-          </div>
-          <div class="case-study-content">
-            <h3>コーポレートウェブサイトのリデザイン</h3>
-            <div class="case-study-details">
-              <div class="case-study-problem">
-                <h4>Problem</h4>
-                <p>ユーザーエンゲージメントとリード獲得率の低さ</p>
-              </div>
-              <div class="case-study-solution">
-                <h4>Solution</h4>
-                <p>ユーザー中心のデザインと明確なCTAを配置したリデザイン</p>
-              </div>
-              <div class="case-study-metric">
-                <h4>Impact</h4>
-                <p>リード獲得数3倍、平均セッション時間40%増加</p>
-              </div>
-            </div>
-            <!-- <a href="#" class="button button-small">View Case Study →</a> -->
-          </div>
-        </div>
+  <!-- process section starts  -->
+
+  <section class="process">
+
+    <h1 class="heading">work process</h1>
+
+    <div class="box-container container">
+
+      <div class="box">
+        <img src="assets/images/shikhar_dental/process-1.png" alt="">
+        <h3>Cosmetic Dentistry</h3>
+        <p>Cosmetic dentistry includes teeth whitening, dental implants, dental crowns, and teeth shaping.</p>
       </div>
+
+      <div class="box">
+        <img src="assets/images/shikhar_dental/process-2.png" alt="">
+        <h3>Pediatric Dentistry</h3>
+        <p>Padiatric dentistry include stainless steel crowns, tooth-colored fillings, dental cleanings, and cavities.
+        </p>
+      </div>
+
+      <div class="box">
+        <img src="assets/images/shikhar_dental/process-3.png" alt="">
+        <h3>Dental Implants</h3>
+        <p>Dental implants are artificial tooth roots that are surgically placed into the jawbone.</p>
+      </div>
+
     </div>
+
   </section>
 
-   <!-- Portfolio Section with Swiper -->
-   <section id="projects" class="portfolio">
-    <div class="container">
-      <h2 class="section-title">Projects <span>Portfolio</span></h2>
-      <p class="section-subtitle">ECシステム別プロジェクト例</p>
-      <!-- ecbeing Section -->
-      <div class="ec-section">
-        <h3 class="ec-title">ecbeing Projects</h3>
-        <div class="swiper ecbeing-swiper">
-          <div class="swiper-wrapper">
-            <!-- ecbeing Item 1 -->
-            <div class="swiper-slide portfolio-item" data-ec="ecbeing">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/ecbeing/img01.png"
-                  alt="ecbeing Project 1">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>ECサイト</h3>
-                    <p>ecbeing Platform</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- ecbeing Item 2 -->
-            <div class="swiper-slide portfolio-item" data-ec="ecbeing">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/ecbeing/img02.png"
-                  alt="ecbeing Project 2">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>ECサイト</h3>
-                    <p>ecbeing Platform</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- ecbeing Item 3 -->
-            <div class="swiper-slide portfolio-item" data-ec="ecbeing">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/ecbeing/img03.png"
-                  alt="ecbeing Project 3">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>ECサイト</h3>
-                    <p>ecbeing Platform</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+  <!-- process section ends -->
+
+  <!-- reviews section starts  -->
+
+  <section class="reviews" id="reviews">
+
+    <h1 class="heading"> Our Clients </h1>
+
+    <div class="box-container container">
+
+      <div class="box">
+        <div class="box-icon">
+          <img src="assets/images/shikhar_dental/smiley_tooth.png" alt="Smiley tooth">
         </div>
+        <p> I had a great experience at Shikhar Dental care. Dr. Rabina was knowledgeable and took the time to explain everything clearly. I highly recommend Shikhar Dental Care for anyone seeking excellent dental care.</p>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <h3>Dr. Nipun Maharjan</h3>
+        <span></span>
       </div>
 
-      <!-- EBISUMART Section -->
-      <div class="ec-section">
-        <h3 class="ec-title">EBISUMART Projects</h3>
-        <div class="swiper ebisumart-swiper">
-          <div class="swiper-wrapper">
-            <!-- EBISUMART Item 1 -->
-            <div class="swiper-slide portfolio-item" data-ec="ebisumart">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/ebisumart/img01.png"
-                  alt="EBISUMART Project 1">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>ECサイト</h3>
-                    <p>EBISUMART Platform</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- EBISUMART Item 2 -->
-            <div class="swiper-slide portfolio-item" data-ec="ebisumart">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/ebisumart/img02.png"
-                  alt="EBISUMART Project 2">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>ECサイト</h3>
-                    <p>EBISUMART Platform</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- EBISUMART Item 3 -->
-            <div class="swiper-slide portfolio-item" data-ec="ebisumart">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/ebisumart/img03.png"
-                  alt="EBISUMART Project 3">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>ECサイト</h3>
-                    <p>EBISUMART Platform</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- EBISUMART Item 4 -->
-            <div class="swiper-slide portfolio-item" data-ec="ebisumart">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/ebisumart/img04.png"
-                  alt="EBISUMART Project 4">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>ECサイト</h3>
-                    <p>EBISUMART Platform</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- EBISUMART Item 5 -->
-            <div class="swiper-slide portfolio-item" data-ec="ebisumart">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/ebisumart/img05.png"
-                  alt="EBISUMART Project 5">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>ECサイト</h3>
-                    <p>EBISUMART Platform</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- EBISUMART Item 6 -->
-            <div class="swiper-slide portfolio-item" data-ec="ebisumart">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/ebisumart/img06.png"
-                  alt="EBISUMART Project 6">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>ECサイト</h3>
-                    <p>EBISUMART Platform</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- EBISUMART Item 7 -->
-            <div class="swiper-slide portfolio-item" data-ec="ebisumart">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/ebisumart/img07.png"
-                  alt="EBISUMART Project 7">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>ECサイト</h3>
-                    <p>EBISUMART Platform</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+      <div class="box">
+        <div class="box-icon">
+          <img src="assets/images/shikhar_dental/smiley_tooth.png" alt="Smiley tooth">
         </div>
+        <p>
+          The care I received was top-notch. The cleaning was gentle but thorough,an Dr. Rabina Singh Shrestha provided insightful tips for maintaining my dental health. The attention to detail and patient care was evident in every aspect of the treatment. The clinic environment was outstanding.Every area, from the waiting room to the treatment rooms, was spotlessly clean and well-organized. The ambiance was both professional and relaxing. Thank you so much for wonderful treatment and tips. Highly recommended.
+        </p>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <h3>Pranesh Shakya</h3>
+        <span></span>
       </div>
 
-      <!-- SFCC Section -->
-      <div class="ec-section">
-        <h3 class="ec-title">SFCC Projects</h3>
-        <div class="swiper sfcc-swiper">
-          <div class="swiper-wrapper">
-            <!-- SFCC Item 1 -->
-            <div class="swiper-slide portfolio-item" data-ec="sfcc">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/sfcc/img01.png"
-                  alt="SFCC Project 1">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>ECサイト</h3>
-                    <p>SFCC Platform</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- SFCC Item 2 -->
-            <div class="swiper-slide portfolio-item" data-ec="sfcc">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/sfcc/img02.png"
-                  alt="SFCC Project 2">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>ECサイト</h3>
-                    <p>SFCC Platform</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- SFCC Item 3 -->
-            <div class="swiper-slide portfolio-item" data-ec="sfcc">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/sfcc/img03.png"
-                  alt="SFCC Project 3">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>ECサイト</h3>
-                    <p>SFCC Platform</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+      <div class="box">
+        <div class="box-icon">
+          <img src="assets/images/shikhar_dental/smiley_tooth.png" alt="Smiley tooth">
         </div>
+        <p>Dr. Rabina is excellent, professional and caring. Highly recommended.</p>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <h3>Nistha Ayurved</h3>
+        <span></span>
       </div>
 
-      <!-- W2 Section -->
-      <div class="ec-section">
-        <h3 class="ec-title">W2 Projects</h3>
-        <p>EBISUMARTへ乗り換え済みのためお見せできません</p>
-      </div>
-
-      <!-- Wordpress Section -->
-      <div class="ec-section">
-        <h3 class="ec-title">Wordpress Projects</h3>
-        <div class="swiper wordpress-swiper">
-          <div class="swiper-wrapper">
-            <!-- Wordpress Item 1 -->
-            <div class="swiper-slide portfolio-item" data-ec="wordpress">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/wordpress/img01.png"
-                  alt="Wordpress Project 1">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>コーポレートサイト</h3>
-                    <p>WordPress</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Wordpress Item 2 -->
-            <div class="swiper-slide portfolio-item" data-ec="wordpress">
-              <div class="portfolio-img">
-                <img
-                  src="assets/images/wordpress/img02.png"
-                  alt="Wordpress Project 2">
-                <div class="portfolio-overlay">
-                  <div class="portfolio-content">
-                    <h3>求人サイト</h3>
-                    <p>WordPress</p>
-                    <a href="#" class="portfolio-link"><i class="fas fa-link"></i> View Project</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-      </div>
     </div>
+
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2 class="section-title">Get In <span>Touch</span></h2>
-      <div class="contact__content">
-        <div class="contact__info">
-          <h3>最後に</h3>
-          <p>
-            ご質問やご要望がございましたら、お気軽にご連絡ください。
-            下記のボタンから面談のスケジュールを予約いただけます。
-          </p>
-          
-          <!-- Calendly Button -->
-          <div class="calendly-button-container">
-            <button 
-              class="button" 
-              onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ratna-singh-jp/30min'});return false;"
-              id="calendly-button"
-            >
-              <i class="far fa-calendar-alt"></i> 面談を予約する
-            </button>
-            <p class="calendly-note">またはメールでご連絡ください: 
-              <a href="mailto:ratna.singh.jp@gmail.com" class="email-link">ratna.singh.jp@gmail.com</a>
-            </p>
-          </div>
-          
-          <div class="contact__details">
-            <div class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <div>
-                <h4>Location</h4>
-                <p>東京、日本</p>
-              </div>
-            </div>
-            
-            <!-- Hidden Calendly Inline Widget -->
-            <div id="calendly-widget" style="display: none;">
-              <!-- Calendly inline widget will be loaded here -->
-            </div>
-          </div>
-          <!-- <div class="contact__social">
-            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
-          </div> -->
-        </div>
-        <!-- <form class="contact__form">
-          <div class="form-group">
-            <input type="text" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" placeholder="Your Email" required>
-          </div>
-          <div class="form-group">
-            <input type="text" placeholder="Subject">
-          </div>
-          <div class="form-group">
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="button">Send Message</button>
-        </form> -->
-      </div>
-    </div>
+  <!-- reviews section ends -->
+
+  <!-- contact section starts  -->
+
+  <section class="contact" id="contact">
+
+    <h1 class="heading">make appointment</h1>
+
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+      <!--<?php
+         if(isset($message)){
+            foreach($message as $message){
+               echo '<p class="message">'.$message.'</p>';
+            }
+         }
+      ?>-->
+      <span>Enter your name :</span>
+      <input type="text" name="name" placeholder="Enter your name" class="box" required>
+      <span>Enter your email :</span>
+      <input type="email" name="email" placeholder="Enter your email" class="box" required>
+      <span>Enter your number :</span>
+      <input type="number" name="number" placeholder="Enter your number" class="box" required>
+      <span>Enter appointment date :</span>
+      <input type="datetime-local" name="date" class="box" required>
+      <input type="submit" value="make appointment" name="submit" class="link-btn">
+    </form>
+
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <!-- <div class="footer__content">
-        <div class="footer__about">
-          <h3>About Me</h3>
-          <p>I'm a passionate developer dedicated to creating beautiful and functional web experiences that make a
-            difference.</p>
-        </div>
-        <div class="footer__links">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer__newsletter">
-          <h3>Newsletter</h3>
-          <p>Subscribe to my newsletter for the latest updates and projects.</p>
-          <form class="newsletter-form">
-            <input type="email" placeholder="Your Email">
-            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-          </form>
-        </div>
-      </div> -->
-      <div class="footer__bottom">
-        <p>&copy; <span id="current-year"></span> SINGH RATNA. All Rights Reserved.</p>
-        <!-- <div class="footer__social">
-          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
-        </div> -->
-      </div>
-    </div>
-  </footer>
+  <!-- contact section ends -->
 
-  <!-- Back to Top Button -->
-  <a href="#" class="back-to-top" aria-label="Back to top">
+  <!-- footer section starts  -->
+
+  <section class="footer">
+
+    <div class="box-container container">
+
+      <div class="box">
+        <i class="fas fa-phone"></i>
+        <h3>phone number</h3>
+        <p>
+          <a class="shikhar-link" href="tel:9849245461">9849245461</a> / <a class="shikhar-link" href="tel:01-5200835">01-5200835</a>
+        </p>
+
+      </div>
+
+      <div class="box">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>our address</h3>
+        <p><a href="https://www.google.com/maps?q=Alpine+Tole,+Mahalaxmi+04,+Lalitpur" target="_blank" class="shikhar-link">Alpine Tole, Mahalaxmi 04, Lalitpur</a></p>
+      </div>
+
+      <div class="box">
+        <i class="fas fa-clock"></i>
+        <h3>opening hours</h3>
+        <p>09:00am to 06:00pm</p>
+      </div>
+
+      <div class="box">
+        <i class="fas fa-envelope"></i>
+        <h3>email address</h3>
+        <p>
+          <a href="mailto:shikhardentalcare@gmail.com" class="shikhar-link">shikhardentalcare@gmail.com</a>
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="credit"> &copy;2026 <?php echo date('Y'); ?> <span>Shikhar Dental Care</span> All Reserved Rights </div>
+
+  </section>
+
+  <!-- footer section ends -->
+
+
+
+  <!-- preloader -->
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
+
+  <!-- back to top button -->
+  <a href="#home" class="back-to-top">
     <i class="fas fa-arrow-up"></i>
   </a>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Scripts -->
-  <!-- Local Swiper JS -->
+
+  <!-- custom js file link  -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="assets/lib/gsap/gsap.min.js"></script>
+  <script src="assets/lib/gsap/ScrollTrigger.min.js"></script>
+  <script src="assets/lib/gsap/MotionPathPlugin.min.js"></script>
   <script src="assets/lib/swiper/swiper-bundle.min.js"></script>
-  <!-- Typed.js from CDN with fallback -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16/dist/typed.umd.min.js"
-    integrity="sha256-+2U3fV4tf+9OY8TVfR8FV3z9+EZ2pI0eKhAmi3G5X4=" crossorigin="anonymous"></script>
-  <script>
-    // Fallback for Typed.js if CDN fails
-    if (typeof Typed === 'undefined') {
-      document.write('<script src="assets/lib/typed/typed.min.js"><\/script>');
-    }
-  </script>
-  <!-- Main JavaScript (ES Module) -->
-  <script type="module" src="assets/js/main.js"></script>
-  <script type="module" src="assets/js/smooth_scroll.js"></script>
-  
-  <!-- Calendly script -->
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script>
-    // Initialize Calendly button
-    document.addEventListener('DOMContentLoaded', function() {
-      // This will be called when the Calendly script is loaded
-      if (typeof Calendly !== 'undefined') {
-        // Calendly is already loaded
-        initCalendly();
-      } else {
-        // Wait for Calendly to load
-        const checkCalendly = setInterval(function() {
-          if (typeof Calendly !== 'undefined') {
-            clearInterval(checkCalendly);
-            initCalendly();
-          }
-        }, 100);
-      }
-      
-      function initCalendly() {
-        // Initialize Calendly button
-        const calendlyButton = document.getElementById('calendly-button');
-        if (calendlyButton) {
-          calendlyButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            Calendly.initPopupWidget({
-              url: 'https://calendly.com/ratna-singh-jp/30min',
-              text: '面談を予約する',
-              color: '#3a86ff',
-              textColor: '#ffffff',
-              branding: false
-            });
-            return false;
-          });
-        }
-      }
-    });
-  </script>
+  <script src="assets/js/shikhar_dental.js"></script>
+
 </body>
 
 </html>
