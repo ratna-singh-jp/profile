@@ -44,8 +44,8 @@ const cfg = {
     dest: 'view/'
   },
   styles: {
-    src: 'develop/assets/scss/**/*.scss',
-    base: 'develop/assets/scss',
+    src: 'develop/assets/css/**/*.scss',
+    base: 'develop/assets/css',
     dest: 'view/assets/css/'
   },
   scripts: {
@@ -60,7 +60,7 @@ const cfg = {
   static: {
     src: [
       'develop/**/*',
-      '!develop/assets/scss/**/*',
+      '!develop/assets/css/**/*',
       '!develop/assets/js/**/*',
       '!develop/**/*.{html,ejs,xhtml}',
       '!develop/**/*.{png,jpg,jpeg,gif,svg,webp}',
@@ -197,7 +197,7 @@ const copyLib = () => {
 const staticFiles = () =>
   src([
     'develop/assets/**/*',
-    '!develop/assets/{scss,js,images,lib}/**/*', // Exclude lib as we handle it separately
+    '!develop/assets/{css,js,images,lib}/**/*', // Exclude lib as we handle it separately
     'develop/assets/images/*.{ico,png,svg,webmanifest,json,webp}' // Explicitly include manifest files
   ], { 
     dot: true, 
@@ -411,7 +411,7 @@ const dev = series(build, () => {
   // Watch static files (fonts, etc.)
   const watchStatic = () => watch([
     'develop/assets/**/*',
-    '!develop/assets/{scss,js,images,lib}/**/*',
+    '!develop/assets/{css,js,images,lib}/**/*',
     '!develop/**/*.{ejs,html,scss,js,png,jpg,jpeg,gif,svg,webp}'
   ], {
     ignoreInitial: false
